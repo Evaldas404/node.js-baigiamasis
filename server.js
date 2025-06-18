@@ -1,7 +1,9 @@
-import express, { json } from "express";
+import express from "express";
 import "dotenv/config";
 import cors from "cors";
 import mongoose from "mongoose";
+import userRouter from "./src/users/userRoutes.js";
+import ticketRouter from "./src/tickets/ticketRoutes.js";
 
 const app = express();
 
@@ -14,6 +16,10 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+// app.use("/tickets", ticketRouter)
+app.use("/users", userRouter);
+app.use("/tickets", ticketRouter);
 
 app.use((req, res) => {
   res.status(404).json({
