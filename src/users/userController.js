@@ -6,7 +6,7 @@ import TicketModel from "../tickets/ticketModel.js";
 
 const users = [];
 
-export const INSERT_USER = async (req, res) => {
+export const REGISTER_USER = async (req, res) => {
   try {
     const { password } = req.body;
     if (!password || password.length < 6 || !/\d/.test(password)) {
@@ -275,7 +275,7 @@ export const USERS_WITH_TICKETS = async (req, res) => {
   }
 };
 
-export const USER_WITH_TICKETS_BY_ID = async (req, res) => {
+export const USER_BY_ID_WITH_TICKETS = async (req, res) => {
   try {
     const userId = req.body.userId;
 
